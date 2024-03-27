@@ -30,13 +30,14 @@ export class ClienteRegistroComponent {
       let cliente = {...this.formulario.value};
       this.clienteService.addCliente(cliente).subscribe(data =>{
         console.log('Data:',data);
+        this.router.navigate(['/vehiculos']);
         if (!data){
           alert('Error al guardar');
           return;
         }
       });
       console.log('Formulario',this.formulario.value);
-      this.router.navigate(['/vehiculos']);
+    
     }
 
 }
